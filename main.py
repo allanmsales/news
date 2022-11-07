@@ -46,10 +46,35 @@ folha_de_sp.print()
 jovem_pan = Portal('JOVEM PAN', 'https://jovempan.com.br/', 'soup.find("h2", {"class": "title"}).text')
 jovem_pan.print()
 
+### CNN BRASIL ###
+cnn_brasil = Portal('CNN BRASIL', 'https://www.cnnbrasil.com.br/', 'soup.find("h2", {"class": "home__title headline__primary_title"}).text')
+cnn_brasil.print()
+
 ### DIÁRIO DO NORDESTE ###
 diario_do_nordeste = Portal('DIÁRIO DO NORDESTE', 'https://diariodonordeste.verdesmares.com.br/', 'soup.find("h2", {"class": "m-c-teaser__heading"}).text')
 diario_do_nordeste.print()
 
+### THE NEW YORK TIMES ###
+the_new_york_times = Portal('THE NEW YORK TIMES', 'https://www.nytimes.com/', 'soup.find("h3", {"class": "indicate-hover"}).text')
+the_new_york_times.print()
+
+### THE WASHINGTON POST ###
+the_washington_post = Portal('THE WASHINGTON POST', 'https://www.washingtonpost.com/', 'soup.find("h2", {"class": "relative left font--headline font-bold font-size-xl"}).text')
+the_washington_post.print()
+
+### FRANCE 24 ###
+france_24 = Portal('FRANCE 24', 'https://www.france24.com/fr/', 'soup.find("p", {"class": "article__title"}).text')
+france_24.print()
+
+### REUTERS ###
+reuters = Portal('REUTERS', 'https://www.reuters.com/', 'soup.find("div", {"class": "media-story-card__header__1NpsG"}).text')
+reuters.print()
+
+### CNN ### RETURNS NOTHING
+'''
+reuters = Portal('CNN', 'https://edition.cnn.com/', 'soup.find("article", {"class": "cd"})')
+reuters.print()
+'''
 
 ### ESTADO DE SP ### BLOQUED
 '''
