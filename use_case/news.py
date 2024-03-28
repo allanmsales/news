@@ -1,18 +1,12 @@
 from entity.portal import Portal
+from entity.uol import Uol
+from entity.r7 import R7
 
 
 def news_pipeline():
-    ### UOL ###
-    try:
-        uol = Portal(
-            'UOL',
-            'https://www.uol.com.br',
-            'soup.find("h3", {"class": "title__element"}).text'
-            )
-        uol.print()
-    except:
-        print('Impossible to read ' + uol.name)
-
+    uol = Uol()
+    #r7 = R7()
+    
     ### R7 ###
     try:
         r7 = Portal(
@@ -23,7 +17,7 @@ def news_pipeline():
         r7.print()
     except:
         print('Impossible to read ' + r7.name)
-
+    
     ### VALOR ###
     try:
         valor = Portal(
