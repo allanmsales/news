@@ -1,72 +1,22 @@
 from entity.portal import Portal
+from entity.uol import Uol
+from entity.r7 import R7
+from entity.valor import Valor
+from entity.infomoney import Infomoney
+from entity.folha_de_sp import FolhaDeSp
+from entity.jovem_pan import JovemPan
+from entity.diario_do_nordeste import DiarioDoNordeste
 
 
 def news_pipeline():
-    ### UOL ###
-    try:
-        uol = Portal(
-            'UOL',
-            'https://www.uol.com.br',
-            'soup.find("h3", {"class": "title__element"}).text'
-            )
-        uol.print()
-    except:
-        print('Impossible to read ' + uol.name)
+    Uol()
+    R7()
+    Valor()
+    Infomoney()
+    FolhaDeSp()
+    JovemPan()
+    DiarioDoNordeste()
 
-    ### R7 ###
-    try:
-        r7 = Portal(
-            'R7',
-            'https://www.r7.com/',
-            'soup.find("a", {"class": "r7-flex-title-h3__link"}).text'
-            )
-        r7.print()
-    except:
-        print('Impossible to read ' + r7.name)
-
-    ### VALOR ###
-    try:
-        valor = Portal(
-            'VALOR',
-            'https://valor.globo.com/',
-            'soup.find("a", {"class": "bstn-dedupe-url"}).text'
-            )
-        valor.print()
-    except:
-        print('Impossible to read ' + valor.name)
-
-    ### INFOMONEY ###
-    try:
-        infomoney = Portal(
-            'INFOMONEY',
-            'https://www.infomoney.com.br/',
-            'soup.find("a", {"class": "cover-link"})["title"]'
-            )
-        infomoney.print()
-    except:
-        print('Impossible to read ' + infomoney.name)
-
-    ### FOLHA DE SP ###
-    try:
-        folha_de_sp = Portal(
-            'FOLHA DE SP',
-            'https://www.folha.uol.com.br/',
-            'soup.find("h2", {"class": "c-main-headline__title"}).text'
-            )
-        folha_de_sp.print()
-    except:
-        print('Impossible to read ' + folha_de_sp.name)
-
-    ### JOVEM PAN ###
-    try:
-        jovem_pan = Portal(
-            'JOVEM PAN',
-            'https://jovempan.com.br/',
-            'soup.find("h2", {"class": "title"}).text'
-            )
-        jovem_pan.print()
-    except:
-        print('Impossible to read ' + jovem_pan.name)
 
     ### CNN BRASIL ###
     try:
@@ -79,16 +29,6 @@ def news_pipeline():
     except:
         print('Impossible to read ' + cnn_brasil.name)
 
-    ### DIÁRIO DO NORDESTE ###
-    try:
-        diario_do_nordeste = Portal(
-            'DIÁRIO DO NORDESTE',
-            'https://diariodonordeste.verdesmares.com.br/',
-            'soup.find("h2", {"class": "m-c-teaser__heading"}).text'
-            )
-        diario_do_nordeste.print()
-    except:
-        print('Impossible to read ' + diario_do_nordeste.name)
 
     ### THE NEW YORK TIMES ###
     try:
