@@ -1,5 +1,6 @@
 from entity.portal import Portal
 
+
 class Uol(Portal):
     def __init__(self):
         self.name = 'UOL'
