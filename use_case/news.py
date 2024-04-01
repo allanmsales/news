@@ -6,6 +6,7 @@ from entity.infomoney import Infomoney
 from entity.folha_de_sp import FolhaDeSp
 from entity.jovem_pan import JovemPan
 from entity.diario_do_nordeste import DiarioDoNordeste
+from entity.cnn_brasil import CnnBrasil
 
 
 def news_pipeline():
@@ -16,18 +17,7 @@ def news_pipeline():
     FolhaDeSp()
     JovemPan()
     DiarioDoNordeste()
-
-
-    ### CNN BRASIL ###
-    try:
-        cnn_brasil = Portal(
-            'CNN BRASIL',
-            'https://www.cnnbrasil.com.br/',
-            'soup.find("h2", {"class": "home__title headline__primary_title"}).text'
-            )
-        cnn_brasil.print()
-    except:
-        print('Impossible to read ' + cnn_brasil.name)
+    CnnBrasil()
 
 
     ### THE NEW YORK TIMES ###
