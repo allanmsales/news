@@ -25,7 +25,7 @@ def news_pipeline():
         the_new_york_times = Portal(
             'THE NEW YORK TIMES',
             'https://www.nytimes.com/',
-            'soup.find("h3", {"class": "indicate-hover"}).text'
+            'soup.find("p", {"class": "indicate-hover"}).text'
             )
         the_new_york_times.print()
     except:
@@ -36,7 +36,7 @@ def news_pipeline():
         the_washington_post = Portal(
             'THE WASHINGTON POST',
             'https://www.washingtonpost.com/',
-            'soup.find("h2", {"class": "relative left font--headline font-bold font-size-xl"}).text'
+            'soup.find("div", {"class": "headline relative gray-darkest pb-xs"}).text'
             )
         the_washington_post.print()
     except:
@@ -47,7 +47,7 @@ def news_pipeline():
         france_24 = Portal(
             'FRANCE 24',
             'https://www.france24.com/fr/',
-            'soup.find("p", {"class": "article__title"}).text'
+            'soup.find("div", {"class": "article__title"}).text'
             )
         france_24.print()
     except:
@@ -59,7 +59,7 @@ def news_pipeline():
         reuters = Portal(
             'REUTERS',
             'https://www.reuters.com/',
-            'soup.find("div", {"class": "media-story-card__header__1NpsG"}).text'
+            'soup.find("span", {"class": "text__text__1FZLe text__dark-grey__3Ml43 text__medium__1kbOh text__heading_4__14ZqK heading__base__2T28j heading__heading_4__3yjho"}).text'
             )
         reuters.print()
     except:
