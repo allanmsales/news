@@ -7,6 +7,7 @@ from entity.folha_de_sp import FolhaDeSp
 from entity.jovem_pan import JovemPan
 from entity.diario_do_nordeste import DiarioDoNordeste
 from entity.cnn_brasil import CnnBrasil
+from entity.speak.speak import Speak
 
 
 def news_pipeline():
@@ -18,6 +19,10 @@ def news_pipeline():
     JovemPan()
     DiarioDoNordeste()
     CnnBrasil()
+
+    speak = Speak()
+    speak.get_voices()
+
 
 
     ### THE NEW YORK TIMES ###
