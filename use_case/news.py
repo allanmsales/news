@@ -7,6 +7,9 @@ from entity.folha_de_sp import FolhaDeSp
 from entity.jovem_pan import JovemPan
 from entity.diario_do_nordeste import DiarioDoNordeste
 from entity.cnn_brasil import CnnBrasil
+from entity.the_new_york_times import TheNewYorkTimes
+from entity.the_washington_post import TheWashigtonPost
+from entity.france_24 import France24
 from entity.speak.speak import Speak
 
 
@@ -19,44 +22,12 @@ def news_pipeline():
     JovemPan()
     DiarioDoNordeste()
     CnnBrasil()
+    TheNewYorkTimes()
+    TheWashigtonPost()
+    France24()
 
-    speak = Speak()
-    speak.get_voices()
-
-
-
-    ### THE NEW YORK TIMES ###
-    try:
-        the_new_york_times = Portal(
-            'THE NEW YORK TIMES',
-            'https://www.nytimes.com/',
-            'soup.find("p", {"class": "indicate-hover"}).text'
-            )
-        the_new_york_times.print()
-    except:
-        print('Impossible to read ' + the_new_york_times.name)
-
-    ### THE WASHINGTON POST ###
-    try:
-        the_washington_post = Portal(
-            'THE WASHINGTON POST',
-            'https://www.washingtonpost.com/',
-            'soup.find("div", {"class": "headline relative gray-darkest pb-xs"}).text'
-            )
-        the_washington_post.print()
-    except:
-        print('Impossible to read ' + the_washington_post.name)
-
-    ### FRANCE 24 ###
-    try:
-        france_24 = Portal(
-            'FRANCE 24',
-            'https://www.france24.com/fr/',
-            'soup.find("div", {"class": "article__title"}).text'
-            )
-        france_24.print()
-    except:
-        print('Impossible to read ' + france_24.name)
+    #speak = Speak()
+    #speak.text_to_speach()
 
 
     ### REUTERS ###
