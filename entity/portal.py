@@ -17,9 +17,7 @@ class Portal():
         return self
 
     def print(self):
-        try:
-            self.head_line()
-            print(self.name + ': ', self.result)
-        except:
-            print(f"Impossible to read {self.name}")
+        self.head_line()
+        print(self.name + ': ', self.result)
+
     
