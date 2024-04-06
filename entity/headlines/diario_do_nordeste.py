@@ -1,4 +1,5 @@
-from entity.portal import Portal
+from entity.headlines.portal import Portal
+
 
 
 class DiarioDoNordeste(Portal):
