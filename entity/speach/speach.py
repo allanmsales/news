@@ -11,7 +11,7 @@ headers = {
 }
 
 
-class Speak:
+class Speach:
     def __init__(self):
         pass
 
