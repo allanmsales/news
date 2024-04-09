@@ -9,16 +9,14 @@ class Portal():
         self.name = name
         self.url = url
         self.soup_function = soup_function
-        self.summary = 'TEST'
+        self.summary = None
 
-    def head_line(self):
+    def get_head_line(self):
         page = http.request('GET', self.url)
         soup = BeautifulSoup(page.data, 'html.parser')
         self.result = eval(self.soup_function)
-        return self
     
-    def print(self):
-        self.head_line()
-        print(self.name + ': ', self.result.strip() + '.')
-
+    def save_head_line(self):
+        self.get_head_line()
+        self.summary = f"{self.name}: {self.result.strip()}."
     

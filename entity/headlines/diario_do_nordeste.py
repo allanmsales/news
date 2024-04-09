@@ -8,4 +8,4 @@ class DiarioDoNordeste(Portal):
         self.url = 'https://diariodonordeste.verdesmares.com.br/'
         self.soup_function = 'soup.find("h2", {"class": "m-c-teaser__heading"}).text'
         super()
-        self.print()
+        self.save_head_line()

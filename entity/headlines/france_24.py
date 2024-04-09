@@ -8,4 +8,4 @@ class France24(Portal):
         self.url = 'https://www.france24.com/fr/'
         self.soup_function = 'soup.find("div", {"class": "article__title"}).text'
         super()
-        self.print()
+        self.save_head_line()
