@@ -7,4 +7,4 @@ class JovemPan(Portal):
         self.url = 'https://jovempan.com.br/'
         self.soup_function = 'soup.find("h2", {"class": "title"}).text'
         super()
-        self.print()
+        self.save_head_line()

@@ -12,8 +12,8 @@ headers = {
 
 
 class Speach:
-    def __init__(self):
-        pass
+    def __init__(self, text):
+        self.text = text
 
     def get_voices(self):
         response = requests.get(url, headers=headers)
@@ -26,15 +26,7 @@ class Speach:
         CHUNK_SIZE = 1024
         XI_API_KEY = config.ELEVENLABS_API_KEY
         VOICE_ID = "pNInz6obpgDQGcFmaJgB"
-        TEXT_TO_SPEAK = """
-                            UOL: Réus por organização criminosa mantêm contratos com governo \n\n
-                            VALOR:   Revisão da vida toda: União deve abrir mão de honorários e custas nas ações sobre aposentadoria \n\n 
-                            INFOMONEY:  Alívio temporário? Entenda porque as falas de Powell melhoraram o ânimo do mercado \n\n
-                            FOLHA DE SP:  Prates se irrita, pede conversa definitiva com Lula e pode sair da Petrobras \n\n
-                            JOVEM PAN:  Julgamento de Moro no TRE-PR é adiado mais uma vez após placar ficar em 1 a 1 \n\n
-                            DIÁRIO DO NORDESTE:  Da Beira Mar à Taíba, banhistas relatam dor, vômito e falta de ar após contato com águas-vivas no CE \n\n
-                            CNN BRASIL:   Com filiação de Anielle Franco, governo Lula fica com nove ministros sem partido 
-                        """
+        TEXT_TO_SPEAK = self.text
         OUTPUT_PATH = "output.mp3"
 
         tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/stream"

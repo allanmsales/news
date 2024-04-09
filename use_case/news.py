@@ -13,17 +13,35 @@ from entity.speach.speach import Speach
 
 
 def news_pipeline():
-    Uol()
-    R7()
-    Valor()
-    Infomoney()
-    FolhaDeSp()
-    JovemPan()
-    DiarioDoNordeste()
-    CnnBrasil()
-    TheNewYorkTimes()
-    TheWashigtonPost()
-    France24()
+    uol = Uol()
+    print(uol.summary)
+    #r7 = R7()
+    #print(r7.summary)
+    valor = Valor()
+    infomoney = Infomoney()
+    folha_de_sp = FolhaDeSp()
+    jovem_pan = JovemPan()
+    diario_do_nordeste = DiarioDoNordeste()
+    cnn_brasil = CnnBrasil()
+    the_new_york_times = TheNewYorkTimes()
+    the_washington_post = TheWashigtonPost()
+    france_24 = France24()
 
-    #speach = Speach()
-    #speach.text_to_speach()
+    summary = [
+        uol.summary,
+        #r7.summary,
+        valor.summary,
+        infomoney.summary,
+        folha_de_sp.summary,
+        jovem_pan.summary,
+        diario_do_nordeste.summary,
+        cnn_brasil.summary,
+        the_new_york_times.summary,
+        the_washington_post.summary,
+        france_24.summary
+    ]
+
+    summary = ' '.join(summary)
+
+    speach = Speach(summary)
+    speach.text_to_speach()

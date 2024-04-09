@@ -7,4 +7,4 @@ class TheWashigtonPost(Portal):
         self.url = 'https://www.washingtonpost.com/'
         self.soup_function = 'soup.find("div", {"class": "headline relative gray-darkest pb-xs"}).text'
         super()
-        self.print()
+        self.save_head_line()

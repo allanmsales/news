@@ -8,4 +8,4 @@ class FolhaDeSp(Portal):
         self.url = 'https://www.folha.uol.com.br/'
         self.soup_function = 'soup.find("h2", {"class": "c-main-headline__title"}).text'
         super()
-        self.print()
+        self.save_head_line()
