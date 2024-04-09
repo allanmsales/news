@@ -7,4 +7,4 @@ class TheNewYorkTimes(Portal):
         self.url = 'https://www.nytimes.com/'
         self.soup_function = 'soup.find("p", {"class": "indicate-hover"}).text'
         super()
-        self.print()
+        self.save_head_line()

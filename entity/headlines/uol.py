@@ -7,4 +7,4 @@ class Uol(Portal):
         self.url = 'https://www.uol.com.br'
         self.soup_function = 'soup.find("h3", {"class": "title__element"}).text'
         super()
-        self.print()
+        self.save_head_line()

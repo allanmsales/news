@@ -7,4 +7,4 @@ class CnnBrasil(Portal):
         self.url = 'https://www.cnnbrasil.com.br/'
         self.soup_function = 'soup.find("h2", {"class": "block__news__title"}).text'
         super()
-        self.print()
+        self.save_head_line()

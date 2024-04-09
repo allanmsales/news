@@ -7,4 +7,4 @@ class Valor(Portal):
         self.url = 'https://valor.globo.com/'
         self.soup_function = 'soup.find("a", {"class": "bstn-dedupe-url"}).text'
         super()
-        self.print()
+        self.save_head_line()

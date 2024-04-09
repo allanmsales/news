@@ -7,4 +7,4 @@ class Infomoney(Portal):
         self.url = 'https://www.infomoney.com.br/'
         self.soup_function = 'soup.find("a", {"class": "cover-link"})["title"]'
         super()
-        self.print()
+        self.save_head_line()
