@@ -18,14 +18,23 @@ def news_pipeline():
     #r7 = R7()
     #print(r7.summary)
     valor = Valor()
+    print(valor.summary)
     infomoney = Infomoney()
+    print(infomoney.summary)
     folha_de_sp = FolhaDeSp()
+    print(folha_de_sp.summary)
     jovem_pan = JovemPan()
+    print(jovem_pan.summary)
     diario_do_nordeste = DiarioDoNordeste()
+    print(diario_do_nordeste.summary)
     cnn_brasil = CnnBrasil()
+    print(cnn_brasil.summary)
     the_new_york_times = TheNewYorkTimes()
+    print(the_new_york_times.summary)
     the_washington_post = TheWashigtonPost()
+    print(the_washington_post.summary)
     france_24 = France24()
+    print(france_24.summary)
 
     summary = [
         uol.summary,
@@ -43,5 +52,7 @@ def news_pipeline():
 
     summary = ' '.join(summary)
 
-    speach = Speach(summary)
-    speach.text_to_speach()
+    #speach = Speach(summary)
+    #speach.text_to_speach()
+
+    return summary
