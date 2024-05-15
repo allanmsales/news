@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 http = urllib3.PoolManager()
 
 
-class TheWashigtonPost():
+class NbcNews():
     def __init__(self):
-        self.name = 'THE WASHINGTON POST'
-        self.url = 'https://www.washingtonpost.com/'
+        self.name = 'NBC NEWS'
+        self.url = 'https://www.nbcnews.com/'
         self.head_line = None
         self.link = None
         self.pipeline()
@@ -20,7 +20,7 @@ class TheWashigtonPost():
     def get_head_line_and_link(self):
         page = http.request('GET', self.url)
         soup = BeautifulSoup(page.data, 'html.parser')
-        self.result = soup.find("div", {"class": "headline relative gray-darkest pb-xs"})
+        self.result = soup.find("div", {"class": "container-side__text-content no-dek no-author-timestamp"})
         soup = self.result
         news = soup.find_all("a")
         first_news = news[0]
