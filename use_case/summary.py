@@ -18,15 +18,21 @@ http = urllib3.PoolManager()
 def summary():
     links = get_links()
     summaries = []
+    sentiments = []
     for i in links:
         news = read_news(i)
         response = entity_search(news, 'Biden')
         if response == 'YES':
-            print(check_sentiment(news, 'Biden'))
+            sentiments.append(check_sentiment(news, 'Biden'))
             summary = summarize(news, 'Biden')
             summaries.append(summary)
     texts = ''.join(summaries)
-    print(summarize_all(texts, 'Biden'))
+    if len(sentiments) > 0:
+        sentiment = max(set(sentiments), key = sentiments.count)
+    else:
+        sentiment = 'No sentiments today'
+    return f"""Sentiment: \n\n {sentiment}. \n\n
+    Summary: \n\n {summarize_all(texts, 'Biden')}"""
 
 
 def get_links():
@@ -66,7 +72,7 @@ def read_news(url):
 
 def entity_search(name, text):
     llm = ChatOpenAI(api_key=config.OPENAI_API_KEY)
-    response = llm.invoke(f'Answer YES or NO if this name: {name} is mentioned in this text {text}.')
+    response = llm.invoke(f'Answer YES or NO if this name is explicitly mentioned in this text: NAME: {name}. TEXT: {text}.')
     return response.content
 
 
@@ -78,11 +84,14 @@ def check_sentiment(text, name):
 
 def summarize(text, name):
     llm = ChatOpenAI(api_key=config.OPENAI_API_KEY)
-    response = llm.invoke(f'Make a short summary of this text: {text}. Prioritize mentions of {name}.')
+    response = llm.invoke(f'Make a short summary of this text, focusing on the excerpt in which {name} is mentioned: TEXT: {text}')
     return response.content
 
 
 def summarize_all(texts, name):
-    llm = ChatOpenAI(api_key=config.OPENAI_API_KEY)
-    response = llm.invoke(f'Make a discursive text joining all these texts: {texts}. Prioritize mentions of {name}.')
-    return response.content
+    if len(texts) > 0:
+        llm = ChatOpenAI(api_key=config.OPENAI_API_KEY)
+        response = llm.invoke(f'Make a discursive text joining all these texts, focusing on the excerpt in which {name} is mentioned. TEXTS: {texts}.')
+        return response.content
+    else:
+        return f'No mentions of {name} today'
