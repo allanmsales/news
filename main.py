@@ -3,7 +3,7 @@ from server.gunicorn_server import GunicornServer
 from controller import news
 
 app = FastAPI(
-    title="Mews Web Crawler",
+    title="News Web Crawler",
     version="0.1",
     description="API to get news from web."
 )
