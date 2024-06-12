@@ -39,7 +39,7 @@ def get_links():
     portal_dict = {
         #'bbc': {'instance': Bbc()},
         'news_week': {'instance': NewsWeek()},
-        'bloomberg': {'instance': Bloomberg()},
+        #'bloomberg': {'instance': Bloomberg()},
         'nbc_news': {'instance': NbcNews()},
         'fox_news': {'instance': FoxNews()},
         'usa_today': {'instance': UsaToday()},
