@@ -8,8 +8,11 @@ Ubuntu 22.04
 Please include a .env file in the project root with the following details:
 
 ELEVENLABS_API_KEY=<your_elevenlabes_api_key>
+
 OPENAI_API_KEY=<your_openai_api_key>
+
 GMAIL_EMAIL=<your_gmail_address>
+
 GMAIL_APP=<your_gmail_app_key>
 
 # Installation
