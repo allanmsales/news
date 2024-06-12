@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from use_case.news_brasil import news_brasil
 from use_case.summary import summary
 from use_case.jobs import jobs
+from use_case.emails import emails
 
 router = APIRouter(
     prefix="/headlines",
@@ -22,3 +23,8 @@ def get_summary_controller():
 @router.post('/get_jobs')
 def get_jobs_controller():
     return jobs()
+
+
+@router.post('/get_emails')
+def get_emails_controller():
+    return emails()
